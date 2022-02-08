@@ -1,0 +1,7 @@
+#!/bin/bash
+cat <<EOF > webapp.go
+package main
+func getFiles() string {
+	return "$(cd ui/dist && tar -zcf /tmp/archive.tar.gz . && cat /tmp/archive.tar.gz | base64 -w 0)"
+}
+EOF
