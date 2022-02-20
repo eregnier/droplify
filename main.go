@@ -83,8 +83,7 @@ func handler(c *gin.Context) {
 			return
 		}
 	}
-	fmt.Println("subdomain", subdomain)
-	path := c.Param("path")
+	path := strings.ReplaceAll(c.Param("path"),"..", ".")
 	if path == "/" {
 		path = "index.html"
 	}
